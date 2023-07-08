@@ -3,14 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using MoreMountains.Feedbacks;
 
 public class MainMenu : MonoBehaviour
 {
-    private Slider _musicSlider, _vfxSlider, _masterSlider;
+    private bool _tutorialWasPlayed = false;
+
+    [SerializeField] private GameObject LoadTutorial;
+    [SerializeField] private GameObject LoadGameplay;
 
     private void Awake()
     {
-        AudioManager.Instance.Play("MainMenuMusic");
+        //AudioManager.Instance.Play("MainMenuMusic");
+    }
+
+    private void Start()
+    {
+        Debug.Log(GameManager.Instance.GetTutorialWasPlayed);
+    }
+
+    public void PlayTutorial()
+    {
+        if (GameManager.Instance.GetTutorialWasPlayed)
+        {
+            LoadGameplay.GetComponent<MMFeedbacks>().PlayFeedbacks();
+            return;
+        }
+
+        LoadTutorial.GetComponent<MMFeedbacks>().PlayFeedbacks();
+        GameManager.Instance.SetTutorialWasPlayed = true;
+        GameManager.Instance.TutorialVisited();
     }
 
     #region Links
@@ -34,17 +56,13 @@ public class MainMenu : MonoBehaviour
         Application.OpenURL("https://mounirtohami.itch.io");
     }
     #endregion
+
+    #region Quit
     public void Quit ()
     {
         Application.Quit();
     }
-
-    #region SoundController
-    public void MusicVolume ()
-    {
-        
-    }
-
     #endregion
+
 
 }
