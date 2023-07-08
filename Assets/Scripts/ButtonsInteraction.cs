@@ -6,21 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class ButtonsInteraction : MonoBehaviour
 {
-    private bool _closeToTheEdge = false;
-    private bool _closeToTheNet = false;
-    private bool _closeToTheBody = false;
 
     [SerializeField][Range(0.15f, 0.9f)] private float _OutOfMoment;
     [SerializeField][Range(0.15f, 0.9f)] private float _RightMoment;
     private float _timer;
     private float _maxTime = 10.0f;
 
+    [SerializeField]
     private Image _suspectometerFill;
 
 
     private void Awake()
     {
-        _suspectometerFill = transform.GetChild(0).transform.GetChild(4).GetComponent<Image>();
         _suspectometerFill.fillAmount = 0f;
     }
 
@@ -50,32 +47,26 @@ public class ButtonsInteraction : MonoBehaviour
 
     public void BallOut ()
     {
-        if (!_closeToTheEdge) // button at the wrong time
-            IncreaseSuspectometer(0.30f);
-
-
-        if (_closeToTheEdge) //button at the right time
+        if (GameInteractions.Instance.BallNearLine) //button at the right time
             IncreaseSuspectometer(0.10f);
+        else
+            IncreaseSuspectometer(0.30f);
     }
 
     public void HitTheBody ()
     {
-        if (!_closeToTheBody) // button at the wrong time
-            IncreaseSuspectometer(0.30f);
-
-
-        if (_closeToTheBody) //button at the right time
+        if (GameInteractions.Instance.BallNearPlayer) //button at the right time
             IncreaseSuspectometer(0.10f);
+        else
+            IncreaseSuspectometer(0.30f);
     }
 
     public void BallOnNet ()
     {
-        if (!_closeToTheNet) // button at the wrong time
-            IncreaseSuspectometer(0.30f);
-
-
-        if (_closeToTheNet) //button at the right time
+        if (GameInteractions.Instance.BallNearNet) //button at the right time
             IncreaseSuspectometer(0.10f);
+        else
+            IncreaseSuspectometer(0.30f);
     }
 
     //out of moment - grows in 30
