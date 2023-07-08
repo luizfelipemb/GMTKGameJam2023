@@ -14,12 +14,13 @@ public class MainMenu : MonoBehaviour
 
     private void Awake()
     {
-        //AudioManager.Instance.Play("MainMenuMusic");
+        
     }
 
     private void Start()
     {
         Debug.Log(GameManager.Instance.GetTutorialWasPlayed);
+        AudioManager.Instance.Play("MainMenuMusic");
     }
 
     public void PlayTutorial()
