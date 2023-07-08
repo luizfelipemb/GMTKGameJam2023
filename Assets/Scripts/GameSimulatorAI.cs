@@ -1,13 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameSimulatorAI : MonoBehaviour
 {
-    private static GameSimulatorAI _instance;
-    public static GameSimulatorAI Instance {get { return _instance;} private set { } }
+    public static GameSimulatorAI Instance { get; private set; }
 
     const bool PLAYER1 = true;
     const bool PLAYER2 = false;
@@ -63,7 +63,14 @@ public class GameSimulatorAI : MonoBehaviour
 
     private void Awake()
     {
-        _instance = this;
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
     }
     void Start()
     {
@@ -80,7 +87,6 @@ public class GameSimulatorAI : MonoBehaviour
             ballspeed = UnityEngine.Random.Range(BallMinSpeed, BallMaxSpeed);
             if (BallMissed(ballGoingTo))
             {
-                Debug.Log("ball missed");
                 ActionBallMissed?.Invoke();
                 BallGoingOut = true;
                 missedDirection = PlayerBoolToTransform(ballGoingTo).position - ball.transform.position;
@@ -131,7 +137,6 @@ public class GameSimulatorAI : MonoBehaviour
         SuspectometerAmount += value;
         if (SuspectometerAmount >= 1f)
         {
-            Debug.Log("Entrou");
             SceneManager.LoadScene(1, LoadSceneMode.Single);
         }
     }
@@ -139,6 +144,7 @@ public class GameSimulatorAI : MonoBehaviour
     {
         playerThatMissed = PLAYER2;
         BallGoingOut = true;
+        ActionBallMissed?.Invoke();
         missedDirection = PlayerBoolToTransform(ballGoingTo).position - ball.transform.position;
     }
     private bool BallMissed(bool ballgoingto)
