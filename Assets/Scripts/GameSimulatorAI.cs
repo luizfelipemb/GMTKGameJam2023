@@ -198,7 +198,6 @@ public class GameSimulatorAI : MonoBehaviour
 
         ActionBallBackToGame?.Invoke();
         ballspeed = UnityEngine.Random.Range(BallMinSpeed, BallMaxSpeed);
-        startsTheRound = !startsTheRound;
         switch (startsTheRound)
         {
             case PLAYER1:
@@ -227,6 +226,7 @@ public class GameSimulatorAI : MonoBehaviour
         {
             p1Points = 0;
             p2Points = 0;
+            startsTheRound = !startsTheRound;
         }
         ActionScoreChanged?.Invoke();
     }
