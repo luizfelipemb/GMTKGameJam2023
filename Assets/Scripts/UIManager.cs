@@ -84,15 +84,18 @@ public class UIManager : MonoBehaviour
     {
         
         GameSimulatorAI.Instance.BallOutButton();
+        AudioManager.Instance.Play("Whistle");
     }
 
     public void HitTheBody ()
     {
         GameSimulatorAI.Instance.HitTheBodyButton();
+        AudioManager.Instance.Play("Whistle");
     }
 
     public void BallOnNet ()
     {
         GameSimulatorAI.Instance.BallOnNetButton();
+        AudioManager.Instance.Play("Whistle");
     }
 }
