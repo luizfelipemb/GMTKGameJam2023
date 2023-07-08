@@ -8,30 +8,30 @@ public class BallDetection : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Line"))
         {
-            GameInteractions.Instance.BallNearLine = true;
+            GameSimulatorAI.Instance.BallNearLine = true;
         }
         else if (other.gameObject.CompareTag("Net"))
         {
-            GameInteractions.Instance.BallNearNet = true;
+            GameSimulatorAI.Instance.BallNearNet = true;
         }
         else if (other.gameObject.CompareTag("Player"))
         {
-            GameInteractions.Instance.BallNearPlayer = true;
+            GameSimulatorAI.Instance.BallNearPlayer = true;
         }
     }
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Line"))
         {
-            GameInteractions.Instance.BallNearLine = false;
+            GameSimulatorAI.Instance.BallNearLine = false;
         }
         else if (other.gameObject.CompareTag("Net"))
         {
-            GameInteractions.Instance.BallNearNet = false;
+            GameSimulatorAI.Instance.BallNearNet = false;
         }
         else if (other.gameObject.CompareTag("Player"))
         {
-            GameInteractions.Instance.BallNearPlayer = false;
+            GameSimulatorAI.Instance.BallNearPlayer = false;
         }
     }
 

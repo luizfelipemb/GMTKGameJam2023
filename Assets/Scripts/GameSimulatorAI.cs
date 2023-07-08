@@ -1,9 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameSimulatorAI : MonoBehaviour
 {
+    private static GameSimulatorAI _instance;
+    public static GameSimulatorAI Instance {get { return _instance;} private set { } }
+
     const bool PLAYER1 = true;
     const bool PLAYER2 = false;
 
@@ -26,22 +31,40 @@ public class GameSimulatorAI : MonoBehaviour
     [Range(0, 100)]
     public int P2ChanceOfMissing;
 
+    public float SuspectometerDownAmount = .1f;
     private float ballspeed = 5f;
     private bool startsTheRound;
     private bool ballGoingTo;
 
-    private int p1Points;
-    private int p2Points;
-    private int p1Sets;
-    private int p2Sets;
+    public int p1Points;
+    public int p2Points;
+    public int p1Sets;
+    public int p2Sets;
 
-    private bool ballGoingOut;
+    [HideInInspector]
+    public bool BallNearLine;
+    [HideInInspector]
+    public bool BallNearNet;
+    [HideInInspector]
+    public bool BallNearPlayer;
+
+    public Action ActionScoreChanged;
+    public Action ActionBallMissed;
+    public Action ActionBallBackToGame;
+
+    [HideInInspector]
+    public bool BallGoingOut { private set; get; }
     private float goingOutTimer;
     public float TimeBallGoesOut;
     private Vector3 missedDirection;
     private bool playerThatMissed;
+    [HideInInspector]
+    public float SuspectometerAmount { private set; get; }
 
-
+    private void Awake()
+    {
+        _instance = this;
+    }
     void Start()
     {
         startsTheRound = PLAYER1;
@@ -51,34 +74,71 @@ public class GameSimulatorAI : MonoBehaviour
     void Update()
     {
         BallMovement();
-        if (!ballGoingOut && BallCanChangeDirection())
+        if (!BallGoingOut && BallCanChangeDirection())
         {
             ballGoingTo = !ballGoingTo;
             ballspeed = UnityEngine.Random.Range(BallMinSpeed, BallMaxSpeed);
             if (BallMissed(ballGoingTo))
             {
                 Debug.Log("ball missed");
-                ballGoingOut = true;
+                ActionBallMissed?.Invoke();
+                BallGoingOut = true;
                 missedDirection = PlayerBoolToTransform(ballGoingTo).position - ball.transform.position;
             }
         }
 
-        if (ballGoingOut)
+        if (BallGoingOut)
         {
             goingOutTimer += Time.deltaTime;
             if (goingOutTimer > TimeBallGoesOut)
             {
-                ballGoingOut = false;
+                BallGoingOut = false;
                 goingOutTimer = 0;
                 StartNewRound(false);
             }
                 
         }
+
+        if (SuspectometerAmount > 0f)
+            SuspectometerAmount -= SuspectometerDownAmount * Time.deltaTime;
+    }
+    public void BallOutButton()
+    {
+        if (BallNearLine) //button at the right time
+            IncreaseSuspectometer(0.10f);
+        else
+            IncreaseSuspectometer(0.30f);
+        BallMissedByButton();
+    }
+    public void HitTheBodyButton()
+    {
+        if (BallNearPlayer) //button at the right time
+            IncreaseSuspectometer(0.10f);
+        else
+            IncreaseSuspectometer(0.30f);
+        BallMissedByButton();
+    }
+    public void BallOnNetButton()
+    {
+        if (BallNearNet) //button at the right time
+            IncreaseSuspectometer(0.10f);
+        else
+            IncreaseSuspectometer(0.30f);
+        BallMissedByButton();
+    }
+    private void IncreaseSuspectometer(float value)
+    {
+        SuspectometerAmount += value;
+        if (SuspectometerAmount >= 1f)
+        {
+            Debug.Log("Entrou");
+            SceneManager.LoadScene(1, LoadSceneMode.Single);
+        }
     }
     public void BallMissedByButton()
     {
         playerThatMissed = PLAYER2;
-        ballGoingOut = true;
+        BallGoingOut = true;
         missedDirection = PlayerBoolToTransform(ballGoingTo).position - ball.transform.position;
     }
     private bool BallMissed(bool ballgoingto)
@@ -130,6 +190,7 @@ public class GameSimulatorAI : MonoBehaviour
         if(!firstRound)
             AssignPoints();
 
+        ActionBallBackToGame?.Invoke();
         ballspeed = UnityEngine.Random.Range(BallMinSpeed, BallMaxSpeed);
         startsTheRound = !startsTheRound;
         switch (startsTheRound)
@@ -161,6 +222,7 @@ public class GameSimulatorAI : MonoBehaviour
             p1Points = 0;
             p2Points = 0;
         }
+        ActionScoreChanged?.Invoke();
     }
     private bool SomeoneWinSet()
     {
@@ -192,7 +254,7 @@ public class GameSimulatorAI : MonoBehaviour
     private void BallMovement()
     {
         Vector3 direction;
-        if (ballGoingOut)
+        if (BallGoingOut)
             direction = missedDirection;
         else if (ballGoingTo == PLAYER1)
         {
