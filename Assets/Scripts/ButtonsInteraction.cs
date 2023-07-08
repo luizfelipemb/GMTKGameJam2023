@@ -51,6 +51,7 @@ public class ButtonsInteraction : MonoBehaviour
             IncreaseSuspectometer(0.10f);
         else
             IncreaseSuspectometer(0.30f);
+        GameInteractions.Instance.UIButtonClicked();
     }
 
     public void HitTheBody ()
@@ -59,6 +60,7 @@ public class ButtonsInteraction : MonoBehaviour
             IncreaseSuspectometer(0.10f);
         else
             IncreaseSuspectometer(0.30f);
+        GameInteractions.Instance.UIButtonClicked();
     }
 
     public void BallOnNet ()
@@ -67,6 +69,7 @@ public class ButtonsInteraction : MonoBehaviour
             IncreaseSuspectometer(0.10f);
         else
             IncreaseSuspectometer(0.30f);
+        GameInteractions.Instance.UIButtonClicked();
     }
 
     //out of moment - grows in 30
