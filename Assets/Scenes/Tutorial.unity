@@ -181,8 +181,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e802b29e86b4ef74abe728250ecaf37c, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 1d6e842a2c04a8347b426a9c26a3c425, type: 3}
+  m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1615,8 +1615,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.000008, y: -280}
-  m_SizeDelta: {x: 601.24, y: 104.537}
+  m_AnchoredPosition: {x: -2.952, y: -280}
+  m_SizeDelta: {x: 651.984, y: 104.537}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1911082620
 MonoBehaviour:
@@ -1638,7 +1638,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Use the Buttons to \n<color=red>sabotage</color> the bottom adversary"
+  m_text: "Use the Buttons to \n<color=red>sabotage</color> the adversary from above"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b0e96abd5adbbf0469e06dd478cc801c, type: 2}
   m_sharedMaterial: {fileID: 7734504488435498677, guid: b0e96abd5adbbf0469e06dd478cc801c, type: 2}
