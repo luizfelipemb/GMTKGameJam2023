@@ -25,15 +25,21 @@ public class UIManager : MonoBehaviour
     }
     private void Start()
     {
+        GameSimulatorAI.Instance.ActionBallHit += OnBallHit;
         GameSimulatorAI.Instance.ActionScoreChanged += OnScoreChanged;
         GameSimulatorAI.Instance.ActionBallMissed += DisableActionButtons;
         GameSimulatorAI.Instance.ActionBallBackToGame += EnableActionButtons;
     }
     private void OnDisable()
     {
+        GameSimulatorAI.Instance.ActionBallHit -= OnBallHit;
         GameSimulatorAI.Instance.ActionScoreChanged -= OnScoreChanged;
         GameSimulatorAI.Instance.ActionBallMissed -= DisableActionButtons;
         GameSimulatorAI.Instance.ActionBallBackToGame -= EnableActionButtons;
+    }
+    private void OnBallHit()
+    {
+        AudioManager.Instance.Play("BallHit"+UnityEngine.Random.Range(1,5));
     }
     private void OnScoreChanged()
     {
@@ -84,18 +90,15 @@ public class UIManager : MonoBehaviour
     {
         
         GameSimulatorAI.Instance.BallOutButton();
-        AudioManager.Instance.Play("Whistle");
     }
 
     public void HitTheBody ()
     {
         GameSimulatorAI.Instance.HitTheBodyButton();
-        AudioManager.Instance.Play("Whistle");
     }
 
     public void BallOnNet ()
     {
         GameSimulatorAI.Instance.BallOnNetButton();
-        AudioManager.Instance.Play("Whistle");
     }
 }

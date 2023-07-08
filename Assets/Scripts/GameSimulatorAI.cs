@@ -52,6 +52,7 @@ public class GameSimulatorAI : MonoBehaviour
     public Action ActionBallMissed;
     public Action ActionBallBackToGame;
     public Action ActionButtonClicked;
+    public Action ActionBallHit;
 
     [HideInInspector]
     public bool BallGoingOut { private set; get; }
@@ -84,6 +85,7 @@ public class GameSimulatorAI : MonoBehaviour
         BallMovement();
         if (!BallGoingOut && BallCanChangeDirection())
         {
+            ActionBallHit?.Invoke();
             ballGoingTo = !ballGoingTo;
             ballspeed = UnityEngine.Random.Range(BallMinSpeed, BallMaxSpeed);
             if (BallMissed(ballGoingTo))

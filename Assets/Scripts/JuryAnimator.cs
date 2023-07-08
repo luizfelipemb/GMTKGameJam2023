@@ -18,6 +18,7 @@ public class JuryAnimator : MonoBehaviour
     private void Fault()
     {
         thisSprite.sprite = handsUp;
+        AudioManager.Instance.Play("Whistle");
     }
     private void BackToGame()
     {
