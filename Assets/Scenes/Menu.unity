@@ -828,7 +828,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a915cc49ffbb70b4f878e6def5b16eec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startGameButton: {fileID: 1644977289}
   LoadTutorial: {fileID: 652355956}
   LoadGameplay: {fileID: 8954357249959087619}
 --- !u!1 &592703261
@@ -1000,7 +999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5969355381339752305, guid: b67a07f802403b84a9f28b0a6650dd17, type: 3}
       propertyPath: DestinationSceneName
-      value: GameOver
+      value: Tutorial
       objectReference: {fileID: 0}
     - target: {fileID: 7566808780134013988, guid: b67a07f802403b84a9f28b0a6650dd17, type: 3}
       propertyPath: m_Name
