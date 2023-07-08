@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: acba6991ca6e11542bdd7883ab614155
+guid: 9340efac0dc8d2d4e9d2cd57974ebf14
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,70 +108,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Linesman_Empire_SpriteSheet_Type_A_0
-      rect:
-        serializedVersion: 2
-        x: 41
-        y: 9
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3f028eddcf5be5143a37cc2b5d8bf82a
-      internalID: -1524493751
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Linesman_Empire_SpriteSheet_Type_A_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 3
-        width: 8
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ad9ed07dcd91e0242a27b44c04a83ed9
-      internalID: 1924790660
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Linesman_Empire_SpriteSheet_Type_A_2
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 3
-        width: 8
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4b8a25785bf6969449ed95df93b14577
-      internalID: -1702495220
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -182,10 +119,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Linesman_Empire_SpriteSheet_Type_A_0: -1524493751
-      Linesman_Empire_SpriteSheet_Type_A_1: 1924790660
-      Linesman_Empire_SpriteSheet_Type_A_2: -1702495220
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

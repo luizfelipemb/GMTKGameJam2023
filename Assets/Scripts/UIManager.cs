@@ -11,8 +11,8 @@ public class UIManager : MonoBehaviour
     [SerializeField][Range(0.15f, 0.9f)] private float _RightMoment;
     private float _timer;
     private float _maxTime = 10.0f;
-    [SerializeField] private TextMeshProUGUI _textScore;
-    [SerializeField] private TextMeshProUGUI _textSets;
+    [SerializeField] private TextMeshProUGUI _p1Points;
+    [SerializeField] private TextMeshProUGUI _p2Points;
 
     [SerializeField]
     private Image _suspectometerFill;
@@ -40,8 +40,8 @@ public class UIManager : MonoBehaviour
         string p1UIpoints = PointsConverterToTenis(GameSimulatorAI.Instance.p1Points, GameSimulatorAI.Instance.p2Points);
         string p2UIpoints = PointsConverterToTenis(GameSimulatorAI.Instance.p2Points, GameSimulatorAI.Instance.p1Points);
 
-        _textScore.text = $"{p1UIpoints} - {p2UIpoints}";
-        _textSets.text = $"{GameSimulatorAI.Instance.p1Sets} - {GameSimulatorAI.Instance.p2Sets}";
+        _p1Points.text = $"{GameSimulatorAI.Instance.p1Sets}-{p1UIpoints}";
+        _p2Points.text = $"{GameSimulatorAI.Instance.p2Sets}-{p2UIpoints}";
     }
     private void Update()
     {

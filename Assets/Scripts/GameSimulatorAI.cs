@@ -51,6 +51,7 @@ public class GameSimulatorAI : MonoBehaviour
     public Action ActionScoreChanged;
     public Action ActionBallMissed;
     public Action ActionBallBackToGame;
+    public Action ActionButtonClicked;
 
     [HideInInspector]
     public bool BallGoingOut { private set; get; }
@@ -115,6 +116,7 @@ public class GameSimulatorAI : MonoBehaviour
         else
             IncreaseSuspectometer(0.30f);
         BallMissedByButton();
+        ActionButtonClicked?.Invoke();
     }
     public void HitTheBodyButton()
     {
@@ -123,6 +125,7 @@ public class GameSimulatorAI : MonoBehaviour
         else
             IncreaseSuspectometer(0.30f);
         BallMissedByButton();
+        ActionButtonClicked?.Invoke();
     }
     public void BallOnNetButton()
     {
@@ -131,6 +134,7 @@ public class GameSimulatorAI : MonoBehaviour
         else
             IncreaseSuspectometer(0.30f);
         BallMissedByButton();
+        ActionButtonClicked?.Invoke();
     }
     private void IncreaseSuspectometer(float value)
     {
