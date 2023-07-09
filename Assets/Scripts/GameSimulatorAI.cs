@@ -114,27 +114,27 @@ public class GameSimulatorAI : MonoBehaviour
     public void BallOutButton()
     {
         if (BallNearLine) //button at the right time
-            IncreaseSuspectometer(0.10f);
+            IncreaseSuspectometer(0.2f);
         else
-            IncreaseSuspectometer(0.30f);
+            IncreaseSuspectometer(0.40f);
         BallMissedByButton();
         ActionButtonClicked?.Invoke();
     }
     public void HitTheBodyButton()
     {
         if (BallNearPlayer) //button at the right time
-            IncreaseSuspectometer(0.10f);
+            IncreaseSuspectometer(0.2f);
         else
-            IncreaseSuspectometer(0.30f);
+            IncreaseSuspectometer(0.40f);
         BallMissedByButton();
         ActionButtonClicked?.Invoke();
     }
     public void BallOnNetButton()
     {
         if (BallNearNet) //button at the right time
-            IncreaseSuspectometer(0.10f);
+            IncreaseSuspectometer(0.2f);
         else
-            IncreaseSuspectometer(0.30f);
+            IncreaseSuspectometer(0.40f);
         BallMissedByButton();
         ActionButtonClicked?.Invoke();
     }
@@ -143,7 +143,7 @@ public class GameSimulatorAI : MonoBehaviour
         SuspectometerAmount += value;
         if (SuspectometerAmount >= 1f)
         {
-            SceneManager.LoadScene(1, LoadSceneMode.Single);
+            SceneManager.LoadScene("GameOver");
         }
     }
     public void BallMissedByButton()
@@ -230,6 +230,10 @@ public class GameSimulatorAI : MonoBehaviour
             p1Points++;
         if (SomeoneWinSet())
         {
+            if (p1Sets == 2)
+                SceneManager.LoadScene("Victory");
+            else if(p2Sets == 2)
+                SceneManager.LoadScene("GameOver");
             p1Points = 0;
             p2Points = 0;
             startsTheRound = !startsTheRound;
