@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public static class GameUtils
 {
     public static Vector2 GetRandomPositionBetween(Vector2 pos1, Vector2 pos2)
