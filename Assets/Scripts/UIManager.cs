@@ -29,6 +29,13 @@ public class UIManager : MonoBehaviour
         GameSimulatorAI.Instance.ActionScoreChanged += OnScoreChanged;
         GameSimulatorAI.Instance.ActionBallMissed += DisableActionButtons;
         GameSimulatorAI.Instance.ActionBallBackToGame += EnableActionButtons;
+
+        if (AudioManager.Instance.IsPlaying("GameOver"))
+            AudioManager.Instance.StopAudio("GameOver");
+        else if (AudioManager.Instance.IsPlaying("Victory"))
+            AudioManager.Instance.StopAudio("Victory");
+
+        AudioManager.Instance.Play("MainMenuMusic");
     }
     private void OnDisable()
     {

@@ -19,7 +19,11 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(GameManager.Instance.GetTutorialWasPlayed);
+        if (AudioManager.Instance.IsPlaying("GameOver"))
+            AudioManager.Instance.StopAudio("GameOver");
+        else if (AudioManager.Instance.IsPlaying("Victory"))
+            AudioManager.Instance.StopAudio("Victory");
+
         AudioManager.Instance.Play("MainMenuMusic");
     }
 
