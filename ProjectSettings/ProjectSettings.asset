@@ -166,7 +166,7 @@ PlayerSettings:
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
   aotOptions: 
-  stripEngineCode: 1
+  stripEngineCode: 0
   iPhoneStrippingLevel: 0
   iPhoneScriptCallOptimization: 0
   ForceInternetPermission: 0
@@ -176,7 +176,7 @@ PlayerSettings:
   keepLoadedShadersAlive: 0
   StripUnusedMeshComponents: 0
   strictShaderVariantMatching: 0
-  VertexChannelCompressionMask: 4054
+  VertexChannelCompressionMask: 0
   iPhoneSdkVersion: 988
   iOSTargetOSVersionString: 12.0
   tvOSSdkVersion: 0
@@ -576,10 +576,10 @@ PlayerSettings:
   webGLDebugSymbols: 0
   webGLEmscriptenArgs: 
   webGLModulesDirectory: 
-  webGLTemplate: APPLICATION:Default
+  webGLTemplate: APPLICATION:Minimal
   webGLAnalyzeBuildSize: 0
   webGLUseEmbeddedResources: 0
-  webGLCompressionFormat: 0
+  webGLCompressionFormat: 2
   webGLWasmArithmeticExceptions: 0
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
@@ -602,7 +602,7 @@ PlayerSettings:
     QNX: UNITY_POST_PROCESSING_STACK_V2
     Stadia: UNITY_POST_PROCESSING_STACK_V2
     Standalone: MOREMOUNTAINS_FEEDBACKS;MOREMOUNTAINS_TOOLS;MOREMOUNTAINS_NICEVIBRATIONS_INSTALLED;MOREMOUNTAINS_TOOLS_FOR_MMFEEDBACKS;MOREMOUNTAINS_TEXTMESHPRO_INSTALLED;MOREMOUNTAINS_CINEMACHINE_INSTALLED;UNITY_POST_PROCESSING_STACK_V2;MOREMOUNTAINS_POSTPROCESSING_INSTALLED
-    WebGL: UNITY_POST_PROCESSING_STACK_V2
+    WebGL: UNITY_POST_PROCESSING_STACK_V2;MOREMOUNTAINS_FEEDBACKS;MOREMOUNTAINS_TOOLS;MOREMOUNTAINS_NICEVIBRATIONS_INSTALLED;MOREMOUNTAINS_TOOLS_FOR_MMFEEDBACKS;MOREMOUNTAINS_POSTPROCESSING_INSTALLED;MOREMOUNTAINS_TEXTMESHPRO_INSTALLED;MOREMOUNTAINS_CINEMACHINE_INSTALLED
     XboxOne: UNITY_POST_PROCESSING_STACK_V2
     tvOS: UNITY_POST_PROCESSING_STACK_V2
   additionalCompilerArguments: {}
