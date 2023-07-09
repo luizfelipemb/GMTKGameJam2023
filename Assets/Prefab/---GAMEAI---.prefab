@@ -581,7 +581,7 @@ MonoBehaviour:
   P2BoundsRight: {fileID: 6132657671672848890}
   BallMinSpeed: 5
   BallMaxSpeed: 10
-  P1ChanceOfMissing: 40
+  P1ChanceOfMissing: 25
   P2ChanceOfMissing: 15
   SuspectometerDownAmount: 0.01
   p1Points: 0
