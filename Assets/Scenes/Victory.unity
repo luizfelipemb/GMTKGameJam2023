@@ -210,7 +210,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -136}
+  m_AnchoredPosition: {x: 0, y: -90}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &366716065
@@ -722,7 +722,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -413}
+  m_AnchoredPosition: {x: 0, y: -253}
   m_SizeDelta: {x: 1043.32, y: 267.05}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1217185041
@@ -741,7 +741,7 @@ MonoBehaviour:
   animationLoop: 0
   timeScale: 0
   _text: "You're an awesome <wave><color=blue>trickster</color></wave> for being
-    able to fool everyone. \n<wave a=3><color=yellow>Thanks for playing !!</color><wave>"
+    able to fool everyone. \n<wave><color=yellow>Thanks for playing !!</color><wave>"
   useDynamicScaling: 1
   referenceFontSize: 10
   isResettingTimeOnNewText: 1
@@ -803,8 +803,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 55.2
-  m_fontSizeBase: 55.2
+  m_fontSize: 32.4
+  m_fontSizeBase: 32.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -915,7 +915,7 @@ GameObject:
   - component: {fileID: 1533234677}
   - component: {fileID: 1533234679}
   m_Layer: 5
-  m_Name: GAME OVER
+  m_Name: Congratulations
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -938,7 +938,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.0079575, y: -205}
+  m_AnchoredPosition: {x: -0.0079575, y: -110}
   m_SizeDelta: {x: 1280, y: 216.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1533234677
@@ -1377,7 +1377,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -265}
+  m_AnchoredPosition: {x: 0, y: -181}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1932767829
