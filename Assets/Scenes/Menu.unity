@@ -3888,6 +3888,34 @@ MonoBehaviour:
     spacialBlend: 0
     loop: 0
     source: {fileID: 0}
+  - name: BallHit1
+    clip: {fileID: 8300000, guid: 36ed40f54d13b594f94e4ea3ba66ddcc, type: 3}
+    volume: 0.5
+    pitch: 1
+    spacialBlend: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: BallHit2
+    clip: {fileID: 8300000, guid: e364fd95bfcadf74eae7bf5ba921a49d, type: 3}
+    volume: 0.5
+    pitch: 1
+    spacialBlend: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: BallHit3
+    clip: {fileID: 8300000, guid: 3530bb1c08ca31d409a83a7fa370406b, type: 3}
+    volume: 0.5
+    pitch: 1
+    spacialBlend: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: BallHit4
+    clip: {fileID: 8300000, guid: 445267c4731976d4e9d00ed8479f8750, type: 3}
+    volume: 0.5
+    pitch: 1
+    spacialBlend: 0
+    loop: 0
+    source: {fileID: 0}
 --- !u!4 &1657222863
 Transform:
   m_ObjectHideFlags: 0
