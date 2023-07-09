@@ -90,7 +90,6 @@ public class GameSimulatorAI : MonoBehaviour
             ballspeed = UnityEngine.Random.Range(BallMinSpeed, BallMaxSpeed);
             if (BallMissed(ballGoingTo))
             {
-                ActionBallMissed?.Invoke();
                 BallGoingOut = true;
                 missedDirection = PlayerBoolToTransform(ballGoingTo).position - ball.transform.position;
             }
