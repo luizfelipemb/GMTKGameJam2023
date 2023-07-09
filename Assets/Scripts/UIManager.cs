@@ -57,14 +57,17 @@ public class UIManager : MonoBehaviour
     {
         foreach (Button button in actionButtons)
         {
-            button.interactable = false;
+            Animator buttonAnimator = button.GetComponent<Animator>();
+            buttonAnimator.SetTrigger(button.animationTriggers.disabledTrigger);
         }
     }
     private void EnableActionButtons()
     {
         foreach (Button button in actionButtons)
         {
-            button.interactable = true;
+            Animator buttonAnimator = button.GetComponent<Animator>();
+            buttonAnimator.SetTrigger(button.animationTriggers.normalTrigger);
+            //button.animationTriggers.normalTrigger = true;
         }
     }
     private string PointsConverterToTenis(int points, int advPoints)

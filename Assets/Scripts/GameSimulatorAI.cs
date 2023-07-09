@@ -41,6 +41,8 @@ public class GameSimulatorAI : MonoBehaviour
     public int p1Sets;
     public int p2Sets;
 
+    private int winCount;
+
     [HideInInspector]
     public bool BallNearLine;
     [HideInInspector]
@@ -230,7 +232,25 @@ public class GameSimulatorAI : MonoBehaviour
         if (SomeoneWinSet())
         {
             if (p1Sets == 2)
-                SceneManager.LoadScene("Victory");
+            {
+                switch (winCount)
+                {
+                    case 0:
+                        SceneManager.LoadScene("Phase");
+                        winCount++;
+                        break;
+                    case 1:
+                        SceneManager.LoadScene("Phase1");
+                        winCount++;
+                        break;
+                    case 2:
+                        SceneManager.LoadScene("Phase2");
+                        winCount = 0;
+                        break;
+                    default:
+                        break;
+                }
+            }
             else if(p2Sets == 2)
                 SceneManager.LoadScene("GameOver");
             p1Points = 0;
