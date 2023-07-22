@@ -41,7 +41,6 @@ public class GameSimulatorAI : MonoBehaviour
     public int p1Sets;
     public int p2Sets;
 
-    private int winCount;
 
     [HideInInspector]
     public bool BallNearLine;
@@ -223,6 +222,7 @@ public class GameSimulatorAI : MonoBehaviour
     }
     private void AssignPoints()
     {
+        Debug.Log(SceneManager.GetActiveScene().name+"; "+ p1Sets);
         if (playerThatMissed == PLAYER1)
         {
             p2Points++;
@@ -231,27 +231,25 @@ public class GameSimulatorAI : MonoBehaviour
             p1Points++;
         if (SomeoneWinSet())
         {
-            if (p1Sets == 2)
+            if (p1Sets >= 2)
             {
-                switch (winCount)
+                switch (SceneManager.GetActiveScene().name)
                 {
-                    case 0:
+                    case "SampleScene":
+                        Debug.Log("1");
                         SceneManager.LoadScene("Phase");
-                        winCount++;
                         break;
-                    case 1:
-                        SceneManager.LoadScene("Phase1");
-                        winCount++;
+                    case "SampleScene1":
+                        Debug.Log("2");
+                        SceneManager.LoadScene("Phase 1");
                         break;
-                    case 2:
-                        SceneManager.LoadScene("Phase2");
-                        winCount = 0;
-                        break;
-                    default:
+                    case "SampleScene2":
+                        Debug.Log("3");
+                        SceneManager.LoadScene("Victory");
                         break;
                 }
             }
-            else if(p2Sets == 2)
+            else if(p2Sets >= 2)
                 SceneManager.LoadScene("GameOver");
             p1Points = 0;
             p2Points = 0;
@@ -261,12 +259,12 @@ public class GameSimulatorAI : MonoBehaviour
     }
     private bool SomeoneWinSet()
     {
-        if (p1Points==4 && p2Points < 3)
+        if (p1Points>=4 && p2Points < 3)
         {
             p1Sets++;
             return true;
         }
-        else if(p2Points == 4 && p1Points < 3)
+        else if(p2Points >= 4 && p1Points < 3)
         {
             p2Sets++; 
             return true;
