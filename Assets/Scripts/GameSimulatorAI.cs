@@ -222,7 +222,6 @@ public class GameSimulatorAI : MonoBehaviour
     }
     private void AssignPoints()
     {
-        Debug.Log(SceneManager.GetActiveScene().name+"; "+ p1Sets);
         if (playerThatMissed == PLAYER1)
         {
             p2Points++;
@@ -236,15 +235,12 @@ public class GameSimulatorAI : MonoBehaviour
                 switch (SceneManager.GetActiveScene().name)
                 {
                     case "SampleScene":
-                        Debug.Log("1");
                         SceneManager.LoadScene("Phase");
                         break;
                     case "SampleScene1":
-                        Debug.Log("2");
                         SceneManager.LoadScene("Phase 1");
                         break;
                     case "SampleScene2":
-                        Debug.Log("3");
                         SceneManager.LoadScene("Victory");
                         break;
                 }

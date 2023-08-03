@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/GameOver.unity
     guid: 3016db6fd731bca49840bdd2524f332e
   - enabled: 1
-    path: Assets/Scenes/LoadingScreen.unity
+    path: Assets/Feel/MMTools/Tools/MMSceneLoading/LoadingScreens/LoadingScreen.unity
     guid: 888394d52616e5e42b3b54c3f2bbd3eb
   - enabled: 1
     path: Assets/Scenes/Tutorial.unity
@@ -26,9 +26,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Phase.unity
     guid: d6518815184ea054aab4e756708455ba
-  - enabled: 1
-    path: Assets/Scenes/Phase 1.unity
-    guid: 276d121498feddd43911d4b879ecfe2a
   - enabled: 1
     path: Assets/Scenes/Phase 1.unity
     guid: 1f8755a19ff528f4e8f2a9d8f4d4cde1
